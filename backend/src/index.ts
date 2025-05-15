@@ -1,5 +1,6 @@
 import express from "express";
 import dotenv from "dotenv";
+import visitsRouter from "./routes/visits";
 
 dotenv.config();
 
@@ -16,3 +17,5 @@ app.get("/", (_req, res) => {
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
+
+app.use("/visits", visitsRouter);

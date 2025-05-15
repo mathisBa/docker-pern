@@ -1,0 +1,26 @@
+### Create a new visit
+POST http://backend:5001/visits
+Content-Type: application/json
+
+{
+  "ip": "203.0.113.5",
+  "browserId": "abc123",
+  "visitedAt": "2025-05-15T10:00:00Z"
+}
+
+### Read all visits
+GET http://backend:5001/visits
+
+### Read one visit by ID (replace 1 with actual ID)
+GET http://backend:5001/visits/1
+
+### Update visit time by ID (replace 1 with actual ID)
+PUT http://backend:5001/visits/1
+Content-Type: application/json
+
+{
+  "visitedAt": "2025-05-15T12:00:00Z"
+}
+
+### Delete visit by ID (replace 1 with actual ID)
+DELETE http://backend:5001/visits/1

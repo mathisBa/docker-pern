@@ -22,6 +22,7 @@ services:
       - PORT=5001
     depends_on:
       - db
+    
 
   frontend:
     build:
@@ -44,6 +45,7 @@ services:
       - "5432:5432"
     volumes:
       - pg-data:/var/lib/postgresql/data
+      - ../backend/db/init/01-create-visits.sql:/docker-entrypoint-initdb.d/01-create-visits.sql
 
 volumes:
   pg-data:
