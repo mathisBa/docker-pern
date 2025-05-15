@@ -1,35 +1,32 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+// src/App.tsx
+import { useEffect } from "react";
+import { api } from "./api";
+import { VisitsList } from "./components/VisitList";
 
-function App() {
-  const [count, setCount] = useState(0)
+export default function App() {
+  useEffect(() => {
+    // On prend juste le userAgent comme "browserId"
+    const browserId = navigator.userAgent;
+
+    // On met une IP bidon (ou ta machine, si tu veux)
+    const ip = "127.0.0.1";
+
+    // Envoi simple de la visite
+    api
+      .post("/visits", {
+        ip,
+        browserId,
+        visitedAt: new Date().toISOString(),
+      })
+      .catch((err) => {
+        console.error("Erreur en créant la visite :", err);
+      });
+  }, []);
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div className="App">
+      <h1>Liste des visites</h1>
+      <VisitsList />
+    </div>
+  );
 }
-
-export default App
