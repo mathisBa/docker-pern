@@ -7,7 +7,24 @@
   "forwardPorts": [3000, 5001, 5432],
   "customizations": {
     "vscode": {
-      "extensions": [],
+      "extensions": [
+        "xabikos.JavaScriptSnippets",
+        "stylelint.vscode-stylelint",
+        "HookyQR.beautify",
+        "eamodio.gitlens",
+        "postgresql.pgsql",
+        "formulahendry.auto-import",
+        "benjaminromano.path-autocomplete",
+        "microsoft.vscode-http-client",
+        "pavelgn.dotenv",
+        "vincaslt.highlight-matching-tag",
+        "Gruntfuggly.todo-tree",
+        "SeanMcBreen.SpellRight",
+        "ms-vscode.live-preview",
+        "PeterJausovec.vscode-docker",
+        "GitHub.copilot",
+        "esbenp.prettier-vscode"
+      ],
       "settings": {
         "dev.containers.mountWaylandSocket": false
       }
